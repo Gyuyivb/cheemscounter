@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
     <title>Cheems counter</title>
     <style>
         
         body {
+            font-family: "Amarante", serif;
+            font-style: normal;
             margin: 0;
             height: 100vh;
             width: 100%;
@@ -25,9 +30,16 @@
             
             box-shadow: 0 19px 38px rebeccapurple, 0 15px 12px rebeccapurple;
         }
+        .title{
+            font-size: large;
+            color: #DCA06D;
+            margin: 0;
+            position: relative;
+            top: 10px;
+            text-align: center;
+        }
         .score{
             color: #DCA06D;
-            font-family: Arial, sans-serif;
             font-size: 16px;
             margin: 0;
             position: relative;
@@ -495,6 +507,7 @@
         <div class="layer-10">
             <div class="cloud cloud-left"></div>
         </div>
+        <h1 class="title">Cheems Counter</h1>
         <h3 class="score">Score: </h3>
     </div>
 </body>
