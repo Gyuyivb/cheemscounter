@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheems counter</title>
+    <style>
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            place-items: center;
+
+            counter-reset: score;
+        }
+        .container{
+            position: relative;
+            border: 9px solid black;
+            border-radius: 20px;
+            height: 600px;
+            width: 300px;
+            background: linear-gradient(-140deg, rgb(16, 10, 60) 20%, rgb(37, 16, 93)  20%, rgb(37, 16, 93) 40%, rgb(58, 34, 123) 40%, rgb(58, 34, 123) 60%, rgb(86, 54, 145) 60%, rgb(100, 49, 188) 80%, rgb(100, 49, 188) 80%, rgb(137, 39, 212) 25%);
+            
+            box-shadow: 0 19px 38px rebeccapurple, 0 15px 12px rebeccapurple;
+        }
+        .score{
+            color: #DCA06D;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            position: relative;
+            top: 10px;
+            text-align: center;
+        }
+        .score::after{
+            content: counter(score);
+        }
+        input[type=checkbox]{
+            appearance: none;
+            cursor: pointer;
+            height: 80px;
+            width: 100%;
+            margin: 0;
+            position: relative;
+            top: 0;
+            z-index: 2;
+        }
+        input[type=checkbox]:focus{
+            appearance: none;
+            outline: none;
+        }             
+        input:checked{
+            counter-increment: score;
+        }
+        .layer-1 {
+            /* cheems */
+            position: absolute;
+            z-index: 1;
+            height: 450px;
+            width: 80px;
+            background: rgba(255, 255, 255, 0);
+            bottom: 0px;
+            right: 50px;
+            
+            animation-name: layer;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes layer{
+            0%{
+                bottom: 0;
+            }
+            25%{
+                bottom: -80px;
+            }
+            100%{   
+                bottom: 0;
+            }
+        }
+      
+        .layer-2 {
+            /* cheems */
+            position: absolute;
+            z-index: 2;
+            height: 450px;
+            width: 80px;
+            background: rgba(255, 255, 255, 0);
+            bottom: 0px;
+            left: 50px;
+
+            animation-name: layer;
+            animation-duration: 4s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-3 {
+            /* mountain */
+            position: absolute;
+            z-index: 3;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 230px;
+            height: 400px;
+            background: rgba(0, 0, 0, 0);
+            bottom: 0;
+        }
+        .layer-4 {
+            /* cheems */
+            position: absolute;
+            z-index: 4;
+            height: 350px;
+            width: 80px;
+            background: rgba(255, 255, 255, 0);
+            left: 30px;
+            bottom: 0;
+
+            animation-name: layer;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-5 {
+            /* mountain */
+            position: absolute;
+            z-index: 5;
+            width: 160px;
+            height: 300px;
+            background: rgba(0, 0, 0, 0);
+            left: 10px;
+            bottom: 0;
+        }
+        .layer-6 {
+            /* cheems */
+            position: absolute;
+            z-index: 6;
+            height: 250px;
+            width: 80px;
+            background: rgba(255, 255, 255, 0);
+            right: 30px;
+            bottom: 0;
+
+            animation-name: layer;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-7 {
+            /* mountain */
+            position: absolute;
+            z-index: 7;
+            width: 150px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0);
+            right: 10px;
+            bottom: 0;
+        }
+        .layer-8 {
+            position: absolute;
+            z-index: 8;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 100%;
+            height: 70px;
+            background: rosybrown;
+            bottom: 0;
+        }
+        .layer-9 {
+            position: absolute;
+            z-index: 9;
+            width: 100px;
+            height: 100px;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+        }
+        .layer-10 {
+            position: absolute;
+            z-index: 10;
+            width: 100px;
+            height: 100px;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+        }
+
+        .left-ear--outer{
+            background: #ceaf67;
+            border-radius: 90%;
+            width: 30px;
+            height: 60px;
+            position: absolute;
+            left: 5px;
+            transform: rotate(-25deg);
+        }
+        .left-ear--inner{
+            background: #987f50;
+            border-radius: 90%;
+            width: 20px;
+            height: 50px;
+            position: absolute;
+            left: 8px;
+            top: 2px;
+            transform: rotate(-25deg);
+        }
+        .right-ear--outer{
+            background: #ceaf67;
+            border-radius: 90%;
+            width: 30px;
+            height: 60px;
+            position: absolute;
+            right: 5px;
+            transform: rotate(25deg);
+        }
+        .right-ear--inner{
+            background: #987f50;
+            border-radius: 90%;
+            width: 20px;
+            height: 50px;
+            position: absolute;
+            right: 8px;
+            top: 2px;
+            transform: rotate(25deg);
+        }
+        .head{
+            background: #ceaf67;
+            border-radius: 50% 50% 3px 3px;
+            width: 100%;
+            height: 70px;
+            margin: 0 auto;
+            right: 0;
+            left: 0;
+            position: absolute;
+            top: 10px;
+        }
+        .head__eyepatch{
+            background: #f9eed9;
+            border-radius: 50%;
+            width: 17px;
+            height: 10px;
+            position: absolute;
+            top: 15px;
+        }
+        .head__eyepatch--left{
+            left: 12px;
+        }
+        .head__eyepatch--right{
+            right: 12px;
+        }
+        .head__cheeck{
+            background: #f9eed9;
+            border-radius: 50%;
+            width: 41px;
+            height: 30px;
+            position: absolute;
+            top: 28px
+        }
+        .head__cheeck--left {
+            left: 0;
+        }
+        .head__cheeck--right {
+            right: 0;
+        }
+        .head__eye {
+            background: #5a3a1a;
+            border-radius: 50%;
+            width: 5px;
+            height: 4px;
+            position: absolute;
+            top: 21px;
+            animation-name: blink;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes blink{
+            0%{
+                height: 4px;
+            }
+            5%{
+                transform: translate(0px, 2px);
+                height: 1px;
+            }
+            10%{
+                height: 4px;
+                transform: translate(0px, 0px);
+            }
+        }
+        .head__eye--left {
+            left: 18px;
+        }
+        .head__eye--right {
+            right: 18px;
+        }
+        .head__eyebrow{
+            background: black;
+            border-radius: 50% 50% 0 0;
+            width: 11px;
+            height: 2px;
+            position: absolute;
+            top: 20px;
+        }
+        .head__eyebrow--left{
+            left: 14px;
+            transform: rotate(7deg);
+        }
+        .head__eyebrow--right{
+            right: 14px;
+            transform: rotate(-7deg);
+        }
+        .head__nose{
+            background: black;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            border-radius: 50%;
+            height: 9px;
+            width: 20px;
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: 30px;
+        }
+        .mountain{
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            /* 
+            #210F37 morado oscuro
+            #4F1C51 morado
+            #A55B4B naranja oscuro
+            #DCA06D naranja
+             */
+            background: 
+                linear-gradient(45deg, #210F37 25%, transparent 25%), 
+                linear-gradient(135deg, #210F37 25%, transparent 25%),
+                linear-gradient(-135deg, #210F37 25%, transparent 25%) 0,
+                linear-gradient(-45deg, #210F37 25%, rgb(88, 53, 88) 25%) 0;
+            background-size: 50px 50px;
+            box-shadow: 0px 20px 15px 5px #210F37;
+        }
+        .mountain-grass{
+            width: 100%;
+            height: 64px;
+            border-radius: 20px;
+            background-image: 
+            radial-gradient(#A55B4B 35px, #A55B4B, transparent 37px), 
+            radial-gradient(#A55B4B 25px, #A55B4B, transparent 27px), 
+            radial-gradient(#4F1C51 25px, #4F1C51, transparent 26px), 
+            radial-gradient(#4F1C51 25px, #4F1C51, transparent 26px), 
+            radial-gradient(#4F1C51 22px, #4F1C51, transparent 23px);
+            background-size: 100px 110px;
+            background-position: -60px -60px, -5px 50px, 15px -30px, 50px -20px, -20px 85px;
+            position: absolute;
+            top: 0;
+        }
+        .land{
+            width: 100%;
+            height: 100%;
+            background: #A55B4B;
+        }
+        .land-grass{
+            width: 100%;
+            height: 30px;
+            
+            background-image: radial-gradient(#DCA06D 25px, #DCA06D, transparent 27px), radial-gradient(#DCA06D 15px, #DCA06D, transparent 17px);
+            background-size: 60px 60px;
+            background-position: 25px -30px, -5px 30px;
+
+            position: absolute;
+            top: 0;
+        }
+        .cloud{
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(#4F1C51 38px, #4F1C51, transparent 40px), 
+                radial-gradient(#4F1C51 33px, #4F1C51, transparent 36px), 
+                radial-gradient(#4F1C51 15px, #4F1C51, transparent 18px), 
+                radial-gradient(#4F1C51 28px, #4F1C51, transparent 30px);
+            background-size: 200px 200px;
+            background-position: -60px 0px, -20px -55px, -60px -45px, -13px -25px
+        }
+        .cloud-left{
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="layer-1">
+            <!-- cheems -->
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head__eyepatch head__eyepatch--left"></div>
+                <div class="head__eyepatch head__eyepatch--right"></div>
+                <div class="head__cheeck head__cheeck--left"></div>
+                <div class="head__cheeck head__cheeck--right"></div>
+                <div class="head__eye head__eye--left"></div>
+                <div class="head__eye head__eye--right"></div>
+                <div class="head__eyebrow head__eyebrow--left"></div>
+                <div class="head__eyebrow head__eyebrow--right"></div>
+                <div class="head__nose"></div>
+            </div>
+            <input type="checkbox">
+        </div>
+        <div class="layer-2">
+             <!-- cheems -->
+             <div class="left-ear--outer"></div>
+             <div class="left-ear--inner"></div>
+             <div class="right-ear--outer"></div>
+             <div class="right-ear--inner"></div>
+             <div class="head">
+                 <div class="head__eyepatch head__eyepatch--left"></div>
+                 <div class="head__eyepatch head__eyepatch--right"></div>
+                 <div class="head__cheeck head__cheeck--left"></div>
+                 <div class="head__cheeck head__cheeck--right"></div>
+                 <div class="head__eye head__eye--left"></div>
+                 <div class="head__eye head__eye--right"></div>
+                 <div class="head__eyebrow head__eyebrow--left"></div>
+                 <div class="head__eyebrow head__eyebrow--right"></div>
+                 <div class="head__nose"></div>
+                </div>
+            <input type="checkbox">
+        </div>
+        <div class="layer-3">
+            <div class="mountain">
+                <div class="mountain-grass"></div>
+            </div>
+        </div>
+        <div class="layer-4">
+             <!-- cheems -->
+             <div class="left-ear--outer"></div>
+             <div class="left-ear--inner"></div>
+             <div class="right-ear--outer"></div>
+             <div class="right-ear--inner"></div>
+             <div class="head">
+                 <div class="head__eyepatch head__eyepatch--left"></div>
+                 <div class="head__eyepatch head__eyepatch--right"></div>
+                 <div class="head__cheeck head__cheeck--left"></div>
+                 <div class="head__cheeck head__cheeck--right"></div>
+                 <div class="head__eye head__eye--left"></div>
+                 <div class="head__eye head__eye--right"></div>
+                 <div class="head__eyebrow head__eyebrow--left"></div>
+                 <div class="head__eyebrow head__eyebrow--right"></div>
+                 <div class="head__nose"></div>
+                </div>
+            <input type="checkbox">
+        </div>
+        <div class="layer-5">
+            <div class="mountain">
+                <div class="mountain-grass"></div>
+            </div>
+        </div>
+        <div class="layer-6">
+             <!-- cheems -->
+             <div class="left-ear--outer"></div>
+             <div class="left-ear--inner"></div>
+             <div class="right-ear--outer"></div>
+             <div class="right-ear--inner"></div>
+             <div class="head">
+                 <div class="head__eyepatch head__eyepatch--left"></div>
+                 <div class="head__eyepatch head__eyepatch--right"></div>
+                 <div class="head__cheeck head__cheeck--left"></div>
+                 <div class="head__cheeck head__cheeck--right"></div>
+                 <div class="head__eye head__eye--left"></div>
+                 <div class="head__eye head__eye--right"></div>
+                 <div class="head__eyebrow head__eyebrow--left"></div>
+                 <div class="head__eyebrow head__eyebrow--right"></div>
+                 <div class="head__nose"></div>
+                </div>
+            <input type="checkbox">
+        </div>
+        <div class="layer-7">
+            <div class="mountain">
+                <div class="mountain-grass"></div>
+            </div>
+        </div>
+        <div class="layer-8">
+            <div class="land">
+                <div class="land-grass"></div>
+            </div>
+        </div>
+        <div class="layer-9">
+            <div class="cloud"></div>
+        </div>
+        <div class="layer-10">
+            <div class="cloud cloud-left"></div>
+        </div>
+        <h3 class="score">Score: </h3>
+    </div>
+</body>
+</html>
